@@ -27,9 +27,6 @@ PRODUCT_PACKAGES += \
     fstab.qcom \
     fstab.qcom.ramdisk
 
-# LiveDisplay
-$(call soong_config_set,OPLUS_LINEAGE_LIVEDISPLAY_HAL,ENABLE_SE,false)
-
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay-yaap
@@ -47,9 +44,6 @@ PRODUCT_SHIPPING_API_LEVEL := 30
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
-
-# Touch
-$(call soong_config_set,OPLUS_LINEAGE_TOUCH_HAL,INCLUDE_DIR,$(LOCAL_PATH)/touch/include)
 
 # Inherit from the common OEM chipset makefile.
 $(call inherit-product, device/realme/sm8250-common/common.mk)
