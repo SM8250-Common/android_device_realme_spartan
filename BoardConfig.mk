@@ -15,6 +15,12 @@ DEVICE_PATH := device/realme/spartan
 # Assert
 TARGET_OTA_ASSERT_DEVICE := RMX3371,RE54E4L1,spartan
 
+# Optionally exclude recovery from A/B OTA payload
+# use export EXCLUDE_RECOVERY=true after lunch to exclude stock recovery
+ifeq ($(EXCLUDE_RECOVERY),true)
+AB_OTA_PARTITIONS := $(strip $(subst recovery,,$(AB_OTA_PARTITIONS)))
+endif
+
 # Display
 TARGET_SCREEN_DENSITY := 450
 
